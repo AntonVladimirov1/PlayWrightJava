@@ -31,6 +31,7 @@ public class BasePage {
     @BeforeEach
     void setUp() {
         page=browser.newPage(new Browser.NewPageOptions().setBaseURL("https://automationexercise.com"));
+        //page.setViewportSize(1920,1080);
     }
 
     @AfterEach
