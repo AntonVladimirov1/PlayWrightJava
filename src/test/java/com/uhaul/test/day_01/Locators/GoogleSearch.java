@@ -1,9 +1,6 @@
 package com.uhaul.test.day_01.Locators;
 
-import com.microsoft.playwright.Browser;
-import com.microsoft.playwright.BrowserType;
-import com.microsoft.playwright.Page;
-import com.microsoft.playwright.Playwright;
+import com.microsoft.playwright.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -20,8 +17,10 @@ public class GoogleSearch {
         Page page = browser.newPage();
         page.navigate("https://google.com");
 
-        page.locator("textarea[name='q']").type("Selenium");
-        page.keyboard().press("Enter");
+        Locator searchBox=page.locator("textarea[name='q']");
+                searchBox.type("Selenium"); // can type anything to find
+        Keyboard keyboard = page.keyboard();
+                 keyboard.press("Enter");
         page.waitForTimeout(3000);
 
         System.out.println(page.title());

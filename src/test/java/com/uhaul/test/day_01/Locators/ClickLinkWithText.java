@@ -4,6 +4,7 @@ import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserType;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.Playwright;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class ClickLinkWithText {
@@ -18,10 +19,13 @@ public class ClickLinkWithText {
                 new BrowserType.LaunchOptions().setHeadless(false));
         Page page = browser.newPage();
         page.navigate("https://practice.cydeo.com");
+        //page.setViewportSize(1920,1080);
 
-        page.click("text=A/B Testing");
+        page.click("text=Autocomplete");
         page.waitForTimeout(2000);
         System.out.println(page.title());
+
+        Assertions.assertTrue(page.title().contains("xxx"));
 
 
         page.close();
