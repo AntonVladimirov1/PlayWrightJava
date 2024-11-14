@@ -18,9 +18,11 @@ public class GoogleSearch {
         page.navigate("https://google.com");
 
         Locator searchBox=page.locator("textarea[name='q']");
-                searchBox.type("Selenium"); // can type anything to find
+                //searchBox.fill("Selenium"); // can type anything to find
+                searchBox.pressSequentially("Selenium",new Locator.PressSequentiallyOptions().setDelay(100));//if you want to replicate real typing.
         Keyboard keyboard = page.keyboard();
                  keyboard.press("Enter");
+
         page.waitForTimeout(3000);
 
         System.out.println(page.title());
