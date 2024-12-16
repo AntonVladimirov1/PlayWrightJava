@@ -12,14 +12,15 @@ public class GoogleSearch {
         Playwright playwright = Playwright.create();
         BrowserType chromium = playwright.chromium();
         Browser browser = chromium.launch(
-                //if you want to see browser - pass this line
+                //if you want to see browser - pass in this line
                 new BrowserType.LaunchOptions().setHeadless(false));
         Page page = browser.newPage();
         page.navigate("https://google.com");
 
         Locator searchBox=page.locator("textarea[name='q']");
                 //searchBox.fill("Selenium"); // can type anything to find
-                searchBox.pressSequentially("Selenium",new Locator.PressSequentiallyOptions().setDelay(100));//if you want to replicate real typing.
+                searchBox.pressSequentially("Selenium",new Locator.PressSequentiallyOptions()
+                        .setDelay(100));//if you want to replicate real typing (slowly)
         Keyboard keyboard = page.keyboard();
                  keyboard.press("Enter");
 
@@ -33,6 +34,7 @@ public class GoogleSearch {
         page.close();
         browser.close();
         playwright.close();
+
 
     }
 }
