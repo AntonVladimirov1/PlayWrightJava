@@ -9,7 +9,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 
-public class BasePage {
+public class BaseTestPage {
 
     static protected Browser browser;
     static protected Playwright playwright;
